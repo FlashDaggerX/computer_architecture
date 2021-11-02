@@ -1,0 +1,19 @@
+`ifndef D_LATCH
+`define D_LATCH
+
+module d_latch (Q, QP, d, Clr, Clk);
+    output Q, QP;
+    input d, Clr, Clk;
+
+    wire wNTD, wNTC, wA1, wNA1, wNA2;
+
+    not     n0  (wNTD, d),
+            n1  (wNTC, Clr);
+    and     a0  (wA1, wNA2, wNTC);
+    nand    na1 (wNA1, d, Clk),
+            na2 (wNA2, wNTD, Clk),
+            na3 (Q, wNA1, QP),
+            na4 (QP, wA1, Q);
+endmodule
+
+`endif

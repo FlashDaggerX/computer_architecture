@@ -1,0 +1,17 @@
+`ifndef D_FLIP_FLOP
+`define D_FLIP_FLOP
+
+`include "d_latch.vl"
+
+module d_flip_flop (Q, QP, d, Clr, Clk);
+    output Q, QP;
+    input d, Clr, Clk;
+
+    wire wNTCL, wQ;
+
+    not         n0  (wNTCL, Clk);
+    d_latch     dl1 (wQ, /* unused */, d, Clr, Clk),
+                dl2 (Q, QP, d, Clr, wNTCL);
+endmodule
+
+`endif
