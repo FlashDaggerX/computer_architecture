@@ -1,0 +1,17 @@
+`ifndef REG_FOURBIT
+`define REG_FOURBIT
+
+`include "d_flip_flop.vl"
+
+module reg_4b(Q, d, Clk);
+	output [3:0] Q;
+	input [3:0] d;
+	input Clk;
+
+	d_flip_flop	df0 (Q[0], d[0], Clk),
+				df1 (Q[1], d[1], Clk),
+				df2 (Q[2], d[2], Clk),
+				df3 (Q[3], d[3], Clk);
+endmodule
+
+`endif

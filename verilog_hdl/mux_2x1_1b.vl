@@ -1,0 +1,16 @@
+`ifndef MUX_TWO_ONE_ONEBIT
+`define MUX_TWO_ONE_ONEBIT
+
+module mux_2x1_1b(O, I0, I1, Op);
+    output O;
+    input I0, I1, Op;
+
+    wire wNTO, wA0, wA1;
+
+    not     n1 (wNTO, Op);
+    and     a1 (wA0, I0, wNTO),
+            a2 (wA1, I1, Op);
+    or      o1 (O, wA0, wA1);
+endmodule
+
+`endif

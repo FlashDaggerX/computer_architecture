@@ -1,0 +1,6 @@
+`ifndef REGFILE_FOUR_FOURBIT
+`define REGFILE_FOUR_FOURBIT
+
+
+
+`endif
